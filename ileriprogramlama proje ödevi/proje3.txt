@@ -1,0 +1,89 @@
+1)
+< script >
+dizi =[2, 7, 11, 15]
+hedef=9
+var toplam = function(dizi, hedef) {
+    const length = dizi.length;
+    const cacheNumbToIndex = {};
+    let index;
+    
+    for (index = 0; index < length; index++) {
+        const gotNum = dizi[index];
+        const wantedNum = hedef - gotNum;
+        
+        if (cacheNumbToIndex[wantedNum] !== undefined) {
+            return [index, cacheNumbToIndex[wantedNum]].sort();
+        }
+        
+        cacheNumbToIndex[gotNum] = index;
+    }
+};
+</script>
+
+2)
+< script >
+dizi =[2, 7, 11, 15]
+hedef=9
+var toplam = function(dizi, hedef) {
+    const length = dizi.length;
+    const cacheNumbToIndex = {};
+    let index;
+    
+    for (index = 0; index < length; index++) {
+        const gotNum = dizi[index];
+        const wantedNum = hedef - gotNum;
+        
+        if (cacheNumbToIndex[wantedNum] !== undefined) {
+            return [index, cacheNumbToIndex[wantedNum]].sort();
+        }
+        
+        cacheNumbToIndex[gotNum] = index;
+    }
+};
+</script>
+
+3)
+< script >
+sayilar: [3,8,2,5,4,7]
+var maxProfit = function(prices) {
+    if(prices.length < 2) {
+        return 0;
+    }
+    let maxProfit = 0;
+    let maxStock = Math.max(prices[prices.length - 1], prices[prices.length - 2]);
+    for(let i = prices.length - 2; i > -1; i--) {
+        let profit = maxStock - prices[i];
+        maxStock = Math.max(maxStock, prices[i]);
+        maxProfit = Math.max(profit, maxProfit);
+    }
+    return maxProfit;
+};
+</script>
+
+4)
+< script >
+var s1=5
+var s2=5 
+var toplam=Number(s1)+Number(s2);
+window.alert(toplam);
+</script>
+
+5)
+var sortedArrayToBST = function(nums) {
+	return generate(nums,0,nums.length-1);
+	};
+	
+	var generate = function(nums, start, end){
+	    
+	    if(start > end){
+	        return null;
+	    }
+	    var midIndex = start + parseInt((end - start)/2);
+	    var midVal = nums[midIndex];
+	    
+	    var node = new TreeNode(midVal);
+	    node.left = generate(nums, start, midIndex-1);
+	    node.right = generate(nums, midIndex+1, end);
+	    
+	    return node;
+	}

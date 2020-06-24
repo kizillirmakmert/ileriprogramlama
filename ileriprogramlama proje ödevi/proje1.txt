@@ -1,0 +1,38 @@
+index
+ extends layout
+
+  block content
+    h1= title
+    p Hoþgeldiniz
+    script.
+      var f1 = function() { document.getElementById('Image').src='#{data.item1}' }
+    script.
+      var f2 = function() { document.getElementById('Image').src='#{data.item2}' }
+    script.
+      var f3 = function() { document.getElementById('Image').src='#{data.item3}' }
+  
+    button(onclick='f1()') Bir!
+    button(onclick='f2()') Ýki!
+    button(onclick='f3()') Üç!
+    p
+    a: img(id='myImage' height='200' width='400' src='')
+
+
+
+
+
+
+router.get
+var getData = function () {
+    var data = {
+        'item1': 'http://public-domain-photos.com/free-stock-photos-1/flowers/cactus-76.jpg',
+        'item2': 'http://public-domain-photos.com/free-stock-photos-1/flowers/cactus-77.jpg',
+        'item3': 'http://public-domain-photos.com/free-stock-photos-1/flowers/cactus-78.jpg'
+    }
+    return data;
+}
+router.get
+router.get('/', function (req, res) {
+    res.render('index', { title: 'Express', "data" });
+});
+
